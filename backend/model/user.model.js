@@ -1,5 +1,5 @@
 const { default: mongoose } = require("mongoose");
-
+const Schema = mongoose.Schema; 
 const userSchema = new mongoose.Schema({
     user_id: {
         type: String,
@@ -25,13 +25,13 @@ const userSchema = new mongoose.Schema({
     subscribed_channels: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'channel',
+          ref: 'Channel',
         },
       ],
       admin_channels: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'channel',
+          ref: 'Channel',
         },
       ],
 });
