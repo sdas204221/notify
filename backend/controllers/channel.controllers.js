@@ -7,12 +7,12 @@ exports.createChannel = async (req, res) => {
     const { name, channel_id, adminUserId, category } = req.body;
 
     
-    const adminUser = await User.findById(adminUserId);
+    const adminUser = await User.find({user_id:adminUserId});
     if (!adminUser) {
       return res.status(400).json({ message: 'Admin user does not exist' });
     }
 
-    const  existedChannelId= await User.find(channel_id);
+    const  existedChannelId= await User.find({channel_id:channel_id});
     if (existedChannelId) {
       return res.status(400).json({ message: 'Channel already exist' });
     }
@@ -23,7 +23,7 @@ exports.createChannel = async (req, res) => {
     const newChannel = new Channel({
         channel_id: channel_id, 
         channel_name:name,
-        admin_id: adminUserId,
+        admin_id: adminUser._id,
         category:category
     });
 
