@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    Name:{
+    name:{
         type: String,
         required: true
     },
@@ -18,11 +18,19 @@ const userSchema = new mongoose.Schema({
         type: String,
         unique:true
     },
-    subscribed_channels:{
-        type: [String]
-    },
-    authorised_channels:{
-        type: [String]
-    }
+    subscribed_channels: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'channel',
+        },
+      ],
+      admin_channels: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'channel',
+        },
+      ],
 });
 const User=mongoose.model("user",userSchema)
+
+module.exports = User;
