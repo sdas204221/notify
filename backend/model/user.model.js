@@ -34,6 +34,9 @@ const userSchema = new mongoose.Schema({
           ref: 'Channel',
         },
       ],
+      session_token:{
+        type: [String]
+      }
 });
 const User=mongoose.model("user",userSchema)
 
