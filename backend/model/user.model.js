@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema({
       ref: 'Channel',
     },
   ],
-  admin_channels: [
+  privileged_channels: [
     {
       type: Schema.Types.ObjectId,
       ref: 'Channel',
