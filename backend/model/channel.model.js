@@ -25,11 +25,17 @@ const channelSchema = new mongoose.Schema({
         ref: "user"
     }],
     notices: {
-        type: [noticeSchema]
+        type: [noticeSchema],
+        default: []
     },
+
     category: {
         type: Schema.Types.Mixed
-    }
+    },
+    display_picture: {
+        type: String,
+        required: false
+      },
 });
 
 const Channel = mongoose.model("channel", channelSchema);
