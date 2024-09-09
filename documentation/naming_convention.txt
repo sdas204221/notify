@@ -1,0 +1,43 @@
+MongoDB (Database)
+
+    Collection Names: Use Lower case and typically in plural form.
+        Example: user_profiles, order_items
+    Field Names: Use camelCase.
+        Example: firstName, orderDate
+
+Express (Backend):
+
+    Variable Names: Use camelCase for variables and functions.
+        Example: const userProfile = {};, function getUserDetails() {}
+    File Names: Use snake_case (hyphenated).
+        Example: user_controller.js, order_service.js
+    Class Names: Use PascalCase.
+        Example: class UserProfile {}
+
+Flutter (Frontend)
+
+    Variable Names: Use camelCase.
+        Example: final userProfile;, getUserDetails() {}
+    Class Names: Use PascalCase.
+        Example: class UserProfileWidget {}
+    File Names: Use snake_case.
+        Example: user_profile_widget.dart, order_item_widget.dart
+
+JSON
+
+    Keys: Use camelCase.
+        Example:
+
+        json
+
+        {
+          "firstName": "John",
+          "orderDate": "2024-09-09"
+        }
+
+
+
+
+
+
+This approach should help maintain consistency across your MongoDB, Express backend, Flutter frontend, and JSON data structures.
