@@ -93,7 +93,7 @@ class _LoginState extends State<Login> {
                   userName: _userNameController.text,
                   password: _passwordController.text,
                   isLoginSuccessful: () {
-                    return login(
+                    return UserController.login(
                         _userNameController.text, _passwordController.text);
                   },
                   context: context),
