@@ -33,7 +33,7 @@ class LoginButton extends StatelessWidget {
               .resetCredentialsStatus();
           if (kDebugMode) {
             print("pass");
-            context.go("/home");
+            context.replace("/home");
           }
           // Proceed with further actions such as navigation
         }

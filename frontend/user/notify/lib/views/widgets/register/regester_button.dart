@@ -35,7 +35,7 @@ class RegisterButton extends StatelessWidget {
               .resetCredentialsStatus();
           if (kDebugMode) {
             print("pass");
-            context.go("/login");
+            context.replace("/login");
           }
           // Proceed with further actions such as navigation
         }
