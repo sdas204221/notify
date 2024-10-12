@@ -95,8 +95,7 @@ class _LoginState extends State<Login> {
                   isLoginSuccessful: () {
                     return UserController.login(
                         _userNameController.text, _passwordController.text);
-                  },
-                  context: context),
+                  }),
               GoToRegisterButton(context: context),
             ],
           ),

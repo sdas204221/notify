@@ -7,14 +7,12 @@ import 'package:provider/provider.dart';
 class LoginButton extends StatelessWidget {
   final String userName;
   final String password;
-  final BuildContext context;
   final bool Function() isLoginSuccessful;
 
   const LoginButton({
     super.key,
     required this.userName,
     required this.password,
-    required this.context,
     required this.isLoginSuccessful,
   });
 

@@ -14,7 +14,9 @@ class Home extends StatelessWidget {
       body: ListView.builder(
           itemCount: 50,
           itemBuilder: (BuildContext context, int index) {
-            return ChannelTile(channelId: index.toString());
+            return ChannelTile(
+              channelId: index.toString(),
+            );
           }),
       floatingActionButton: IconButton(
           style: IconButton.styleFrom(

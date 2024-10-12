@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:notify/controllers/channel_controller.dart';
 
 class ChannelTile extends StatelessWidget {
@@ -19,8 +20,9 @@ class ChannelTile extends StatelessWidget {
                     side: BorderSide(color: Theme.of(context).primaryColor)))),
         onPressed: () {
           if (kDebugMode) {
-            print("$channelName pressed");
+            print("trying $channelId");
           }
+          context.go("/home/channel?id=$channelId");
         },
         child: Align(
           alignment: Alignment.centerLeft,
