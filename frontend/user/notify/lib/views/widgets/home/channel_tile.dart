@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:notify/controllers/channel_controller.dart';
+import 'package:notify/views/widgets/channel_dp.dart';
 
 class ChannelTile extends StatelessWidget {
   final String channelId;
@@ -30,12 +31,9 @@ class ChannelTile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: Row(
               children: [
-                CircleAvatar(
-                  radius: 30,
-                  child: Text(
-                    channelName[0],
-                    style: const TextStyle(fontSize: 30),
-                  ),
+                ChannelDp(
+                  channelId: channelId,
+                  size: 30,
                 ),
                 const SizedBox(
                   width: 10,

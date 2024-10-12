@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class Notice extends StatelessWidget {
-  final String messageId;
+  final String noticeId;
   final String channelId;
-  const Notice({super.key, required this.messageId, required this.channelId});
+  const Notice({super.key, required this.noticeId, required this.channelId});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class Notice extends StatelessWidget {
       child: Container(
         color: Theme.of(context).focusColor,
         height: 50,
-        child: Text("${messageId}th messege of $channelId group"),
+        child: Text("${noticeId}th messege of $channelId group"),
       ),
     );
   }

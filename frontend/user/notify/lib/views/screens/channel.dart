@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
 import 'package:notify/controllers/channel_controller.dart';
 import 'package:notify/views/widgets/channel/notice.dart';
+import 'package:notify/views/widgets/channel_dp.dart';
 
 class Channel extends StatelessWidget {
   final String channelId;
@@ -9,19 +11,37 @@ class Channel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> messageIds =
-        ChannelController.getMessageIdsByChannelId(channelId);
-    ChannelController.getMessageIdsByChannelId(channelId);
+    List<String> noticeIds =
+        ChannelController.getNoticeIdsByChannelId(channelId);
+    ChannelController.getNoticeIdsByChannelId(channelId);
     return Scaffold(
       appBar: AppBar(
-        title: Text(ChannelController.getNameById(channelId)),
+        automaticallyImplyLeading: false,
+        title: GestureDetector(
+          onTap: () {
+            context.go("/home/channel/channel_details?id=$channelId");
+          },
+          child: Row(
+            children: [
+              Hero(
+                  tag: "${channelId}dp",
+                  child: ChannelDp(
+                    channelId: channelId,
+                    size: 25,
+                  )),
+              const SizedBox(width: 15),
+              Text(ChannelController.getNameById(channelId)),
+            ],
+          ),
+        ),
       ),
       body: ListView.builder(
-        itemCount: messageIds.length,
+        reverse: true,
+        itemCount: noticeIds.length,
         itemBuilder: (context, index) {
           return Notice(
             channelId: channelId,
-            messageId: messageIds[index],
+            noticeId: noticeIds[index],
           );
         },
       ),

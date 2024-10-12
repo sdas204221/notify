@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:notify/views/screens/channel.dart';
+import 'package:notify/views/screens/channel_details.dart';
 import 'package:notify/views/screens/home.dart';
 import 'package:notify/views/screens/login.dart';
 import 'package:notify/views/screens/register.dart';
@@ -27,15 +28,28 @@ final GoRouter _router = GoRouter(
             },
             routes: <RouteBase>[
               GoRoute(
-                  path: "channel",
-                  builder: (BuildContext context, GoRouterState state) {
-                    try {
-                      return Channel(
-                          channelId: state.uri.queryParameters["id"]!);
-                    } catch (e) {
-                      throw Exception("id not found");
-                    }
-                  })
+                path: "channel",
+                builder: (BuildContext context, GoRouterState state) {
+                  try {
+                    return Channel(channelId: state.uri.queryParameters["id"]!);
+                  } catch (e) {
+                    throw Exception("id not found");
+                  }
+                },
+                routes: <RouteBase>[
+                  GoRoute(
+                    path: 'channel_details',
+                    builder: (BuildContext context, GoRouterState state) {
+                      try {
+                        return ChannelDetails(
+                            channelId: state.uri.queryParameters["id"]!);
+                      } catch (e) {
+                        throw Exception("id not found");
+                      }
+                    },
+                  ),
+                ],
+              )
             ]),
         GoRoute(
           path: 'register',

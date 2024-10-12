@@ -1,13 +1,17 @@
 class ChannelController {
-  static String getNameById(String id) {
-    return "$id number Channel";
+  static String getNameById(String channelId) {
+    return "$channelId number Channel";
   }
 
-  static List<String> getMessageIdsByChannelId(String id) {
-    List<String> messages = [];
+  static List<String> getNoticeIdsByChannelId(String channelId) {
+    List<String> notices = [];
     for (int i = 0; i < 100; i++) {
-      messages.add(i.toString());
+      notices.add(i.toString());
     }
-    return messages;
+    return notices;
+  }
+
+  static String getChannelDescriptionByChannelId(String channelId) {
+    return channelId * 50;
   }
 }
