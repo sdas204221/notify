@@ -21,21 +21,18 @@ class LoginButton extends StatelessWidget {
     return MaterialButton(
       onPressed: () {
         if (!isLoginSuccessful()) {
-          // If login fails, set the invalid credentials flag
           Provider.of<LoginProvider>(context, listen: false)
               .invalidateCredentials();
           if (kDebugMode) {
             print("fail");
           }
         } else {
-          // If login succeeds, reset the invalid credentials flag
           Provider.of<LoginProvider>(context, listen: false)
               .resetCredentialsStatus();
           if (kDebugMode) {
             print("pass");
-            context.replace("/home");
           }
-          // Proceed with further actions such as navigation
+          context.replace("/home");
         }
       },
       child: const Text("Login"),

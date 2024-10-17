@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:notify/controllers/channel_controller.dart';
-import 'package:notify/views/screens/channel.dart';
 import 'package:notify/views/widgets/channel_dp.dart';
 
 class ChannelDetails extends StatelessWidget {

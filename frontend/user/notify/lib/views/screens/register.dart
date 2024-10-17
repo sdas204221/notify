@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:notify/controllers/providers/register_provider.dart';
 import 'package:notify/controllers/user_controller.dart';
 import 'package:notify/views/widgets/register/go_to_login_button.dart';
-import 'package:notify/views/widgets/register/regester_button.dart';
+import 'package:notify/views/widgets/register/register_button.dart';
 import 'package:provider/provider.dart';
 
 class Register extends StatefulWidget {
