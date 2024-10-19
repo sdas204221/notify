@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:notify/views/screens/register.dart';
 
 final GoRoute registerRoute = GoRoute(
-  path: 'register',
+  path: '/register',
   builder: (BuildContext context, GoRouterState state) {
     return const Register();
   },

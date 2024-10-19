@@ -4,7 +4,7 @@ import 'package:notify/routes/home/channel/channel_route.dart';
 import 'package:notify/views/screens/home.dart';
 
 final GoRoute homeRoute = GoRoute(
-    path: 'home',
+    path: '/home',
     builder: (BuildContext context, GoRouterState state) {
       return const Home();
     },
