@@ -23,21 +23,18 @@ class RegisterButton extends StatelessWidget {
     return MaterialButton(
       onPressed: () {
         if (!isRegisterSuccessful()) {
-          // If login fails, set the invalid credentials flag
           Provider.of<RegesterProvider>(context, listen: false)
               .invalidateCredentials();
           if (kDebugMode) {
             print("fail");
           }
         } else {
-          // If login succeeds, reset the invalid credentials flag
           Provider.of<RegesterProvider>(context, listen: false)
               .resetCredentialsStatus();
           if (kDebugMode) {
             print("pass");
           }
-          context.replace("/login");
-          // Proceed with further actions such as navigation
+          context.go("/login");
         }
       },
       child: const Text("Register"),

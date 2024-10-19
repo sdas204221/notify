@@ -32,7 +32,7 @@ class LoginButton extends StatelessWidget {
           if (kDebugMode) {
             print("pass");
           }
-          context.replace("/home");
+          context.go("/home");
         }
       },
       child: const Text("Login"),

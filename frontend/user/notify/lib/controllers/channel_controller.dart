@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class ChannelController {
   static String getNameById(String channelId) {
     return "$channelId number Channel";
@@ -13,5 +15,13 @@ class ChannelController {
 
   static String getChannelDescriptionByChannelId(String channelId) {
     return channelId * 50;
+  }
+
+  static String getRecentNoticeByChannelId(String channelId) {
+    return "Last message of $channelId number Channel";
+  }
+
+  static String getRecentNoticeTimeByChannelId(String channelId) {
+    return "${Random().nextInt(23) + 1}:${Random().nextInt(49) + 10}";
   }
 }

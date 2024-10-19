@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:notify/controllers/channel_controller.dart';
@@ -11,41 +10,60 @@ class ChannelTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String channelName = ChannelController.getNameById(channelId);
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-      child: ElevatedButton(
-        style: ButtonStyle(
-            shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                    side: BorderSide(color: Theme.of(context).primaryColor)))),
-        onPressed: () {
-          if (kDebugMode) {
-            print("trying $channelId");
-          }
-          context.go("/home/channel?id=$channelId");
-        },
-        child: Align(
-          alignment: Alignment.centerLeft,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
+    String recentNotice =
+        ChannelController.getRecentNoticeByChannelId(channelId);
+    String recentNoticeTime =
+        ChannelController.getRecentNoticeTimeByChannelId(channelId);
+    return GestureDetector(
+      onTap: () {
+        context.go("/home/channel?id=$channelId");
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 0),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ChannelDp(
-                  channelId: channelId,
-                  size: 30,
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
+                  child: ChannelDp(
+                    channelId: channelId,
+                    size: 40,
+                    radius: 35,
+                  ),
                 ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  channelName,
-                  style: const TextStyle(fontSize: 20),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 0, 2, 0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        channelName,
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ),
+                      Text(
+                        recentNotice,
+                        style: Theme.of(context).textTheme.labelSmall,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
-        ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              recentNoticeTime,
+              style: Theme.of(context).textTheme.labelSmall,
+            ),
+          ),
+        ],
       ),
     );
   }
