@@ -29,7 +29,10 @@ class Channel extends StatelessWidget {
                     size: 25,
                   )),
               const SizedBox(width: 15),
-              Text(ChannelController.getNameById(channelId)),
+              Text(
+                ChannelController.getNameById(channelId),
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
             ],
           ),
         ),

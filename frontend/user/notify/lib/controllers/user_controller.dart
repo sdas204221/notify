@@ -10,12 +10,21 @@ class UserController {
     return userName == password;
   }
 
-  static bool register(String userName, String password) {
+  static String register(
+    String name,
+    String email,
+    String userName,
+    String password,
+  ) {
     // TODO: implement login logic
     if (kDebugMode) {
       print(userName);
       print(password);
     }
-    return userName == password;
+    if (userName == password) {
+      return "Success";
+    } else {
+      return "Somthing went wrong";
+    }
   }
 }

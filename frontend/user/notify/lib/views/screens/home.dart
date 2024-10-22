@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:notify/views/widgets/channel_dp.dart';
 import 'package:notify/views/widgets/home/channel_tile.dart';
+import 'package:notify/views/widgets/home/home_drawer.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -25,49 +26,14 @@ class Home extends StatelessWidget {
           ),
         ),
         automaticallyImplyLeading: false,
-        title: const Text('NotifyALL'),
+        title: Text(
+          'NotifyALL',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         bottom:
             PreferredSize(preferredSize: const Size(0, 8), child: Container()),
       ),
-      drawer: Drawer(
-          width: MediaQuery.sizeOf(context).width * 0.8,
-          child: Padding(
-            padding: const EdgeInsets.only(top: 50),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Stack(
-                  alignment: AlignmentDirectional.center,
-                  children: [
-                    CircleAvatar(
-                      backgroundColor: Theme.of(context).primaryColor,
-                      radius: 135,
-                    ),
-                    const ChannelDp(channelId: "User", size: 125),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 8, 0, 150),
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(
-                          Theme.of(context).primaryColor),
-                    ),
-                    onPressed: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 8, horizontal: 65),
-                      child: Text(
-                        "Logout",
-                        style: TextStyle(
-                            fontSize: 25, color: Theme.of(context).cardColor),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          )),
+      drawer: const HomeDrawer(),
       body: ListView.builder(
           itemCount: itemCount,
           itemBuilder: (BuildContext context, int index) {

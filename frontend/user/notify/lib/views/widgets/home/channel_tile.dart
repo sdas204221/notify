@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:notify/controllers/channel_controller.dart';
@@ -12,6 +14,8 @@ class ChannelTile extends StatelessWidget {
     String channelName = ChannelController.getNameById(channelId);
     String recentNotice =
         ChannelController.getRecentNoticeByChannelId(channelId);
+    recentNotice =
+        "${recentNotice.substring(0, min(26, recentNotice.length)).replaceAll(RegExp('\n'), " ")}...";
     String recentNoticeTime =
         ChannelController.getRecentNoticeTimeByChannelId(channelId);
     return GestureDetector(

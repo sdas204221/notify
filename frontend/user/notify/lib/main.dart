@@ -30,11 +30,38 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       theme: ThemeData(
-          useMaterial3: true,
-          textTheme: const TextTheme(
-            titleSmall: TextStyle(fontSize: 20),
-            labelSmall: TextStyle(fontSize: 15, color: Colors.grey),
-          )),
+        useMaterial3: true,
+        textTheme: TextTheme(
+          titleLarge:
+              TextStyle(fontSize: 65, color: Theme.of(context).cardColor),
+          titleMedium: const TextStyle(fontSize: 30),
+          titleSmall: const TextStyle(fontSize: 20),
+          labelSmall: const TextStyle(fontSize: 15, color: Colors.grey),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          hintStyle: const TextStyle(fontSize: 17, color: Colors.black26),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+              backgroundColor:
+                  WidgetStatePropertyAll(Theme.of(context).primaryColor),
+              foregroundColor:
+                  WidgetStatePropertyAll(Theme.of(context).cardColor),
+              minimumSize: WidgetStatePropertyAll(
+                  Size(MediaQuery.sizeOf(context).width - 70, 50)),
+              textStyle: const WidgetStatePropertyAll(TextStyle(fontSize: 20))),
+        ),
+        textButtonTheme: const TextButtonThemeData(
+          style: ButtonStyle(
+            padding: WidgetStatePropertyAll(EdgeInsets.zero),
+            overlayColor: WidgetStatePropertyAll(Colors.transparent),
+            elevation: WidgetStatePropertyAll(0),
+            textStyle: WidgetStatePropertyAll(
+                TextStyle(fontSize: 15, decoration: TextDecoration.underline)),
+          ),
+        ),
+      ),
       routerConfig: router,
     );
   }

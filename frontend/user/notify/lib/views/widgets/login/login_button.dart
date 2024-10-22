@@ -18,7 +18,7 @@ class LoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
+    return ElevatedButton(
       onPressed: () {
         if (!isLoginSuccessful()) {
           Provider.of<LoginProvider>(context, listen: false)
