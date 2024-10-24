@@ -9,31 +9,32 @@ class ChannelDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          //title: Text("channel details"),
-          ),
-      body: ListView(
-        //crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Hero(
+      appBar: AppBar(),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView(
+          children: [
+            Hero(
               tag: "${channelId}dp",
-              child: Center(child: ChannelDp(channelId: channelId, size: 130))),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 8, 0, 30),
-              child: Text(
-                ChannelController.getNameById(channelId),
-                style: const TextStyle(fontSize: 30),
+              child: Center(child: ChannelDp(channelId: channelId, size: 130)),
+            ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(0, 8, 0, 30),
+                child: Text(
+                  ChannelController.getNameById(channelId),
+                  style: const TextStyle(fontSize: 30),
+                ),
               ),
             ),
-          ),
-          const Text(
-            "Description",
-            style: TextStyle(fontSize: 20),
-          ),
-          const Divider(),
-          Text(ChannelController.getChannelDescriptionByChannelId(channelId)),
-        ],
+            const Text(
+              "Description",
+              style: TextStyle(fontSize: 20),
+            ),
+            const Divider(),
+            Text(ChannelController.getChannelDescriptionByChannelId(channelId)),
+          ],
+        ),
       ),
     );
   }

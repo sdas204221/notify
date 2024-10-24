@@ -1,6 +1,14 @@
 import 'dart:math';
 
 class ChannelController {
+  static List<String> getAllChannelId() {
+    List<String> channelIds = [];
+    for (int i = 0; i < 100; i++) {
+      channelIds.add(i.toString());
+    }
+    return channelIds;
+  }
+
   static String getNameById(String channelId) {
     return "$channelId number Channel";
   }
@@ -23,5 +31,9 @@ class ChannelController {
 
   static String getRecentNoticeTimeByChannelId(String channelId) {
     return "${Random().nextInt(23) + 1}:${Random().nextInt(49) + 10}";
+  }
+
+  static int getSubscriberCountByChannelId(String channelId) {
+    return int.parse(channelId) * 5657;
   }
 }

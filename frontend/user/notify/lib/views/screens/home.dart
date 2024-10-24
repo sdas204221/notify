@@ -1,15 +1,26 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:notify/views/widgets/channel_dp.dart';
+import 'package:notify/controllers/channel_controller.dart';
 import 'package:notify/views/widgets/home/channel_tile.dart';
 import 'package:notify/views/widgets/home/home_drawer.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  late List<String> channelIds;
+  @override
+  void initState() {
+    channelIds = ChannelController.getAllChannelId();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    int itemCount = 50;
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
@@ -35,15 +46,15 @@ class Home extends StatelessWidget {
       ),
       drawer: const HomeDrawer(),
       body: ListView.builder(
-          itemCount: itemCount,
+          itemCount: channelIds.length,
           itemBuilder: (BuildContext context, int index) {
             return Column(
               children: [
                 ChannelTile(
-                  channelId: index.toString(),
+                  channelId: channelIds[index],
                 ),
                 Visibility(
-                  visible: index != itemCount - 1,
+                  visible: index != channelIds.length - 1,
                   child: const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 90),
                     child: Divider(),
