@@ -1,5 +1,5 @@
 const { default: mongoose, Schema } = require("mongoose");
-const noticeSchema = require("./notice.schema");
+const {noticeSchema} = require("./notice.schema");
 
 const channelSchema = new mongoose.Schema({
     channel_id: {
@@ -28,6 +28,7 @@ const channelSchema = new mongoose.Schema({
         type: [noticeSchema],
         default: []
     },
+    
 
     category: {
         type: Schema.Types.Mixed
@@ -39,4 +40,4 @@ const channelSchema = new mongoose.Schema({
 });
 
 const Channel = mongoose.model("channel", channelSchema);
-module.exports = Channel
+module.exports = Channel;
