@@ -57,7 +57,7 @@ class _RegisterState extends State<Register> {
           const LoginRegisterBackground(),
           Padding(
             padding:
-                EdgeInsets.only(top: MediaQuery.sizeOf(context).width * 0.15),
+                EdgeInsets.only(top: MediaQuery.sizeOf(context).height * 0.07),
             child: Text(
               "Register",
               style: Theme.of(context).textTheme.titleLarge,
@@ -66,97 +66,100 @@ class _RegisterState extends State<Register> {
           Scaffold(
             resizeToAvoidBottomInset: false,
             backgroundColor: Colors.transparent,
-            body: ChangeNotifierProvider(
-              create: (BuildContext context) => RegesterProvider(),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 35),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(
-                          top: MediaQuery.sizeOf(context).width * 0.55),
-                      child: TextField(
-                        controller: _nameController,
-                        decoration: const InputDecoration(
-                          hintText: "Name",
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: TextField(
-                        controller: _userNameController,
-                        decoration: const InputDecoration(
-                          hintText: "Username",
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: TextField(
-                        controller: _emailController,
-                        decoration: const InputDecoration(
-                          hintText: "Email",
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: TextField(
-                        controller: _passwordController,
-                        decoration: const InputDecoration(
-                          hintText: "Password",
-                        ),
-                        obscureText: _isPasswordObscure,
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Checkbox(
-                            value: !_isPasswordObscure,
-                            onChanged: (newValue) {
-                              setState(() {
-                                _isPasswordObscure = !(newValue ?? false);
-                              });
-                            }),
-                        const Text("Show password")
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: RegisterButton(
-                          isRegisterSuccessful: () {
-                            String registrationStatus = UserController.register(
-                              _nameController.text,
-                              _emailController.text,
-                              _userNameController.text,
-                              _passwordController.text,
-                            );
-                            if (registrationStatus != "Success") {
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(SnackBar(
-                                backgroundColor: Colors.redAccent,
-                                content: Text(registrationStatus),
-                              ));
-                            }
-
-                            return registrationStatus == "Success";
-                          },
-                          context: context),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text("Already regesterd? "),
-                          GoToLoginButton(
-                            context: context,
+            body: SingleChildScrollView(
+              child: ChangeNotifierProvider(
+                create: (BuildContext context) => RegesterProvider(),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 35),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(
+                            0, MediaQuery.sizeOf(context).height * 0.29, 0, 10),
+                        child: TextField(
+                          controller: _nameController,
+                          decoration: const InputDecoration(
+                            hintText: "Name",
                           ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: TextField(
+                          controller: _userNameController,
+                          decoration: const InputDecoration(
+                            hintText: "Username",
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: TextField(
+                          controller: _emailController,
+                          decoration: const InputDecoration(
+                            hintText: "Email",
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: TextField(
+                          controller: _passwordController,
+                          decoration: const InputDecoration(
+                            hintText: "Password",
+                          ),
+                          obscureText: _isPasswordObscure,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Checkbox(
+                              value: !_isPasswordObscure,
+                              onChanged: (newValue) {
+                                setState(() {
+                                  _isPasswordObscure = !(newValue ?? false);
+                                });
+                              }),
+                          const Text("Show password")
                         ],
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: RegisterButton(
+                            isRegisterSuccessful: () {
+                              String registrationStatus =
+                                  UserController.register(
+                                _nameController.text,
+                                _emailController.text,
+                                _userNameController.text,
+                                _passwordController.text,
+                              );
+                              if (registrationStatus != "Success") {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                  backgroundColor: Colors.redAccent,
+                                  content: Text(registrationStatus),
+                                ));
+                              }
+
+                              return registrationStatus == "Success";
+                            },
+                            context: context),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text("Already regesterd? "),
+                            GoToLoginButton(
+                              context: context,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

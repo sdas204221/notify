@@ -32,6 +32,8 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         useMaterial3: true,
         textTheme: TextTheme(
+          labelMedium:
+              const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           titleLarge:
               TextStyle(fontSize: 65, color: Theme.of(context).cardColor),
           titleMedium: const TextStyle(fontSize: 30),
