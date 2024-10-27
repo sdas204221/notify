@@ -13,7 +13,7 @@ class ChannelDp extends StatelessWidget {
     return CircleAvatar(
       radius: radius ?? size,
       child: Text(
-        ChannelController.getNameById(channelId)[0],
+        ChannelController.getChannelName(channelId)[0],
         style: TextStyle(fontSize: size),
       ),
     );

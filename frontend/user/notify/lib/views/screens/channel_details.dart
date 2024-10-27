@@ -22,7 +22,7 @@ class ChannelDetails extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(0, 8, 0, 30),
                 child: Text(
-                  ChannelController.getNameById(channelId),
+                  ChannelController.getChannelName(channelId),
                   style: const TextStyle(fontSize: 30),
                 ),
               ),
@@ -32,7 +32,7 @@ class ChannelDetails extends StatelessWidget {
               style: TextStyle(fontSize: 20),
             ),
             const Divider(),
-            Text(ChannelController.getChannelDescriptionByChannelId(channelId)),
+            Text(ChannelController.getChannelDescription(channelId)),
           ],
         ),
       ),

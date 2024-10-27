@@ -11,7 +11,7 @@ class ChannelTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String channelName = ChannelController.getNameById(channelId);
+    String channelName = ChannelController.getChannelName(channelId);
     String recentNotice =
         ChannelController.getRecentNoticeByChannelId(channelId);
     recentNotice =
@@ -64,6 +64,7 @@ class ChannelTile extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               recentNoticeTime,
+              textAlign: TextAlign.right,
               style: Theme.of(context).textTheme.labelSmall,
             ),
           ),

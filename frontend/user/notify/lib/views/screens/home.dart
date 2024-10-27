@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:notify/controllers/channel_controller.dart';
 import 'package:notify/views/widgets/home/channel_tile.dart';
 import 'package:notify/views/widgets/home/home_drawer.dart';
@@ -15,7 +16,7 @@ class _HomeState extends State<Home> {
   late List<String> channelIds;
   @override
   void initState() {
-    channelIds = ChannelController.getAllChannelId();
+    channelIds = GetIt.instance<ChannelController>().getAllChannelIds();
     super.initState();
   }
 

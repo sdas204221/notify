@@ -16,11 +16,11 @@ class Channel extends StatefulWidget {
 
 class _ChannelState extends State<Channel> {
   late bool isMuted;
-  late List<String> noticeIds;
+  late int lastNoticeId;
   @override
   void initState() {
     isMuted = false;
-    noticeIds = ChannelController.getNoticeIdsByChannelId(widget.channelId);
+    lastNoticeId = ChannelController.getLastNoticeId(widget.channelId);
     super.initState();
   }
 
@@ -57,11 +57,11 @@ class _ChannelState extends State<Channel> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    ChannelController.getNameById(widget.channelId),
+                    ChannelController.getChannelName(widget.channelId),
                     style: Theme.of(context).textTheme.titleSmall,
                   ),
                   Text(
-                    "${ChannelController.getSubscriberCountByChannelId(widget.channelId)} subscribers",
+                    "${ChannelController.getSubscriberCount(widget.channelId)} subscribers",
                     style: Theme.of(context).textTheme.labelSmall,
                   ),
                 ],
@@ -75,11 +75,11 @@ class _ChannelState extends State<Channel> {
           Expanded(
             child: ListView.builder(
               reverse: true,
-              itemCount: noticeIds.length,
+              itemCount: lastNoticeId,
               itemBuilder: (context, index) {
                 return Notice(
                   channelId: widget.channelId,
-                  noticeId: noticeIds[noticeIds.length - index - 1],
+                  noticeId: "${lastNoticeId - index - 1}",
                 );
               },
             ),
