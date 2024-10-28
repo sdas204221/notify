@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter_lorem/flutter_lorem.dart';
 
+//TODO: implement class
 class ChannelApiService {
   static List<String> getAllChannelIds(String userName, String sessionToken) {
     List<String> channelIds = [];

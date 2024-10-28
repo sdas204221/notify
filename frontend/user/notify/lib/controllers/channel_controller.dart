@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:intl/intl.dart';
 import 'package:notify/controllers/notice_controller.dart';
 import 'package:notify/services/api/channel_api_service.dart';

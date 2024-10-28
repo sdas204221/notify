@@ -42,3 +42,18 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 structure.txt
+
+
+# Firebase configuration files
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+firebase.json
+
+# Auto-generated files
+lib/firebase_options.dart
+macos/Flutter/GeneratedPluginRegistrant.swift
+windows/flutter/generated_plugin_registrant.cc
+windows/flutter/generated_plugins.cmake
+
+# Dependency lock file (optional)
+pubspec.lock
