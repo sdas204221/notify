@@ -4,9 +4,9 @@ const User = require("../../model/user.model");
 
 exports.createChannel = async (req, res) => {
   try {
-    const { name, channel_id, adminUserId, category ,display_picture} = req.body;
+    const { name, channel_id, user_id, category ,display_picture,type_of_taged_users} = req.body;
 
-    if (!adminUserId)
+    if (!user_id)
         return res.status(400).json({
             success: false,
             message: 'Admin User Id id is required',
@@ -23,7 +23,7 @@ exports.createChannel = async (req, res) => {
         });
    
     
-    const adminUser = await User.findOne({user_id:adminUserId});
+    const adminUser = await User.findOne({user_id:user_id});
     // console.log(adminUser);
     // console.log(adminUser._id);
 
@@ -39,6 +39,7 @@ exports.createChannel = async (req, res) => {
         admin_id: adminUser._id,
         category:category,
         display_picture:display_picture,
+        type_of_taged_users:type_of_taged_users,
         notices:[{
             notice_id:channel_id+'#',
             publisher_id:adminUser._id,
@@ -46,7 +47,7 @@ exports.createChannel = async (req, res) => {
         }]
     });
 
-    
+    newChannel.moderator_ids.push(adminUser._id);
     const savedChannel = await newChannel.save();
     console.log("Channel created");
 

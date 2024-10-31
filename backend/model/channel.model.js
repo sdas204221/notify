@@ -28,7 +28,10 @@ const channelSchema = new mongoose.Schema({
         type: [noticeSchema],
         default: []
     },
-    
+    last_notice_number:{
+        type : Number,
+        default:0
+    },
 
     category: {
         type: Schema.Types.Mixed
@@ -37,6 +40,12 @@ const channelSchema = new mongoose.Schema({
         type: String,
         required: false
       },
+
+      type_of_taged_users:{
+        type:[String],
+        default:[]
+
+      }
 });
 
 const Channel = mongoose.model("channel", channelSchema);

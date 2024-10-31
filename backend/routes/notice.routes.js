@@ -1,11 +1,19 @@
-const express = require('express');
-const router = express.Router();
-const noticeController = require('../controllers/notice_controllers/notice.controller');
-const upload = require('../config/gridfs.config'); 
+const mongoose = require('mongoose');
+const express = require("express");
+const multer = require('multer');
+const path = require('path');
+const noticeController = require('../controllers/notice_controllers/create_notice');
+const verifySessionToken=require('../middleware/verify_session_token');
+const  isModarator=require('../middleware/is_modarator');
 
 
-router.post('/create', upload.single('file'), noticeController.createNotice); 
+const storage = multer.memoryStorage(); // Store file data in memory buffer
+const upload = multer({ storage });
+
+const file_routes=express.Router();
 
 
+file_routes.post('/create',upload.array('files'), verifySessionToken,isModarator,noticeController.createNotice)
 
-module.exports = router;
+
+module.exports = file_routes;

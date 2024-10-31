@@ -1,13 +1,14 @@
 const { default: mongoose, Schema } = require("mongoose");
-
+const {fileSchema} =require('./file.schema')
 const noticeSchema = new mongoose.Schema({
     notice_id: {
         type: String,
         required: true,
-        unique: true
+        //unique: true
     },
-    file_path: {
-        type: String
+    files: {
+        type:[fileSchema],
+        default:[]
     },
     text: {
         type: String
@@ -22,7 +23,7 @@ const noticeSchema = new mongoose.Schema({
     },
     time_stamp: {
         type: Number,
-        required: true
+       
     }
 });
 
