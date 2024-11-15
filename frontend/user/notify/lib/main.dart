@@ -13,9 +13,9 @@ Future<void> main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   setupLocator();
 
-  if (Platform.isAndroid) {
-    Fcm.setupFcm();
-  }
+  // if (Platform.isAndroid) {
+  //   Fcm.setupFcm();
+  // }
   runApp(const MyApp());
 }
 
@@ -29,10 +29,13 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    Timer(const Duration(seconds: 0), () {
+      FlutterNativeSplash.remove();
+    });
 
-    if (Platform.isAndroid) {
-      Fcm.firebaseMessagingForegroundHandler();
-    }
+    // if (Platform.isAndroid) {
+    //   Fcm.firebaseMessagingForegroundHandler();
+    // }
   }
 
   @override
