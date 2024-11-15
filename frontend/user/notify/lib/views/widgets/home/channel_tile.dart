@@ -15,7 +15,7 @@ class ChannelTile extends StatelessWidget {
     String recentNotice =
         ChannelController.getRecentNoticeByChannelId(channelId);
     recentNotice =
-        "${recentNotice.substring(0, min(26, recentNotice.length)).replaceAll(RegExp('\n'), " ")}...";
+        "${recentNotice.substring(0, min(20, recentNotice.length)).replaceAll(RegExp('\n'), " ")}...";
     String recentNoticeTime =
         ChannelController.getRecentNoticeTimeByChannelId(channelId);
     return GestureDetector(

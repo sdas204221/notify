@@ -137,8 +137,15 @@ class _RegisterState extends State<Register> {
                               if (registrationStatus != "Success") {
                                 ScaffoldMessenger.of(context)
                                     .showSnackBar(SnackBar(
-                                  backgroundColor: Colors.redAccent,
-                                  content: Text(registrationStatus),
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.error,
+                                  content: Text(
+                                    registrationStatus,
+                                    style: TextStyle(
+                                      color:
+                                          Theme.of(context).colorScheme.onError,
+                                    ),
+                                  ),
                                 ));
                               }
 

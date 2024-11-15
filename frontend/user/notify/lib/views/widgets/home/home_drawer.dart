@@ -17,7 +17,7 @@ class HomeDrawer extends StatelessWidget {
                 alignment: AlignmentDirectional.center,
                 children: [
                   CircleAvatar(
-                    backgroundColor: Theme.of(context).primaryColor,
+                    backgroundColor: Theme.of(context).colorScheme.primary,
                     radius: 135,
                   ),
                   const ChannelDp(channelId: "User", size: 125),
@@ -26,18 +26,11 @@ class HomeDrawer extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(25, 8, 25, 150),
                 child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStatePropertyAll(Theme.of(context).primaryColor),
-                  ),
                   onPressed: () {},
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 8, horizontal: 65),
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 65),
                     child: Text(
                       "Logout",
-                      style: TextStyle(
-                          fontSize: 25, color: Theme.of(context).cardColor),
                     ),
                   ),
                 ),

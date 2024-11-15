@@ -30,7 +30,8 @@ class _NoticeState extends State<Notice> {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       child: Container(
         decoration: BoxDecoration(
-            color: Theme.of(context).focusColor,
+            color:
+                Theme.of(context).colorScheme.primaryContainer.withOpacity(0.5),
             borderRadius: BorderRadius.circular(10)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

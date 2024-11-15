@@ -16,7 +16,7 @@ class LoginRegisterBackground extends StatelessWidget {
           fit: BoxFit.fill,
           width: MediaQuery.sizeOf(context).width,
           colorFilter: ColorFilter.mode(
-            Theme.of(context).primaryColor,
+            Theme.of(context).colorScheme.primaryContainer,
             BlendMode.srcIn,
           ),
         ),
@@ -27,7 +27,7 @@ class LoginRegisterBackground extends StatelessWidget {
             fit: BoxFit.fill,
             width: MediaQuery.sizeOf(context).width * 0.75,
             colorFilter: ColorFilter.mode(
-              Theme.of(context).primaryColor,
+              Theme.of(context).colorScheme.primaryContainer,
               BlendMode.srcIn,
             ),
           ),

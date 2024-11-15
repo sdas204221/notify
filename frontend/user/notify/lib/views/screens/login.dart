@@ -88,10 +88,9 @@ class _LoginState extends State<Login> {
                           controller: _passwordController,
                           decoration: InputDecoration(
                             hintText: "Password",
-
                             errorText: loginProvider.hasInvalidCredentials
                                 ? "Invalid credentials"
-                                : null, // Show error text if credentials are invalid
+                                : null,
                           ),
                           obscureText: _isPasswordObscure,
                         );

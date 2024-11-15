@@ -23,13 +23,13 @@ class ChannelDetails extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(0, 8, 0, 30),
                 child: Text(
                   ChannelController.getChannelName(channelId),
-                  style: const TextStyle(fontSize: 30),
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
             ),
-            const Text(
+            Text(
               "Description",
-              style: TextStyle(fontSize: 20),
+              style: Theme.of(context).textTheme.titleSmall,
             ),
             const Divider(),
             Text(ChannelController.getChannelDescription(channelId)),

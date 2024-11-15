@@ -66,16 +66,17 @@ class _HomeState extends State<Home> {
           }),
       floatingActionButton: IconButton(
           style: IconButton.styleFrom(
-              backgroundColor: Theme.of(context).cardColor),
-          color: Colors.red,
+            backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
+          ),
           onPressed: () {
             if (kDebugMode) {
+              //TODO implement logic
               print("Add new channel");
             }
           },
           icon: Icon(
             Icons.add,
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).colorScheme.primary,
             size: 60,
           )),
     );

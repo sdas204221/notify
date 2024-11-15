@@ -10,7 +10,7 @@ class MuteButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        color: Theme.of(context).primaryColor,
+        color: Theme.of(context).colorScheme.primary,
         height: 55,
         width: MediaQuery.sizeOf(context).width,
         child: Center(
@@ -18,8 +18,9 @@ class MuteButton extends StatelessWidget {
           isMuted ? "Unmute" : "Mute",
           style: Theme.of(context)
               .textTheme
+              //TODO change this
               .titleSmall
-              ?.copyWith(color: Theme.of(context).canvasColor),
+              ?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
         )),
       ),
     );
