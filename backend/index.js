@@ -2,7 +2,7 @@ const express = require('express');
 const db_connect = require("./config/db");
 const channelRoutes = require('./routes/channel.routes');
 const userRoutes=require("./routes/user.routes");
-const fileRoutes = require('./routes/notice.routes');
+const noticeRoutes = require('./routes/notice.routes');
 require("dotenv").config();
 const cors = require('cors'); 
 //const verifySessionToken=require('./middleware/verify_session_token')
@@ -16,7 +16,7 @@ app.use(cors());
 
 app.use('/api/channels', channelRoutes);
 app.use('/api/users', userRoutes);
-app.use('/files', fileRoutes); 
+app.use('/notice', noticeRoutes); 
 
 const PORT = process.env.PORT ;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -15,7 +15,7 @@ const Tag=require('../../utils/valid_tags');
 
 exports.createNotice= async (req, res) => {
   console.log("---------------------------------------------");
-  console.log("in controller");
+  console.log("in create notice controller");
   //console.log(req);
   console.log("---------------------------------------------");
   
@@ -50,6 +50,7 @@ if(!user){
       return res.status(403).json({ message: 'No file uploaded' });
     }
     let tagarray=[];
+    console.log("printing inside controller");
     console.log(tags);
     
     if(tags){
@@ -63,9 +64,9 @@ if(!user){
         return res.status(400).json({massage: 'invalid tags'});
       }}
     }
-
+    console.log(tagarray);
    let notice_id= channel.channel_id+(channel.last_notice_number +1);
-   channel.last_notice_number= notice_id;
+   channel.last_notice_number=channel.last_notice_number +1;
    
     const newNotice = new Notice({
       notice_id: notice_id,

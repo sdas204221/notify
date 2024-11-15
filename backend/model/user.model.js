@@ -25,13 +25,13 @@ const userSchema = new mongoose.Schema({
   subscribed_channels: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Channel',
+      ref: 'channel',
     },
   ],
   privileged_channels: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Channel',
+      ref: 'channel',
     },
   ],
   session_tokens: {
