@@ -21,7 +21,7 @@ if(user_id){
     user= await User.findOne({user_id: user_id});
     }
     if(!user){
-      return res.status(400).json({massage: 'user not found in middleware'});
+      return res.status(400).json({massage: 'user not found '});
     }
 
 
