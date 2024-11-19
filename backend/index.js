@@ -11,7 +11,8 @@ db_connect();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+//app.use(cors());
+app.use(cors({ exposedHeaders: ['Content-Disposition', 'Content-Type'] }));
 //app.use(verifySessionToken);
 
 app.use('/api/channels', channelRoutes);
