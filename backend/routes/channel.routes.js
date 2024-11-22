@@ -8,9 +8,9 @@ const GetSubcribersNOController=require('../controllers/channel_controllers/get_
 const UnsubcribeChannelController=require('../controllers/channel_controllers/unsubcribe_channel')
 
 channel_router.post('/create',verifySessionToken, createChannelController.createChannel);
-channel_router.post('/getSubcribedChannels',GetSubcribedChannels.getSubcribedChannels);
-channel_router.post('/subcribedChannel',SubcribeChannel.subcribeChannel);
+channel_router.post('/getSubcribedChannels',verifySessionToken,GetSubcribedChannels.getSubcribedChannels);
+channel_router.post('/subcribedChannel',verifySessionToken,SubcribeChannel.subcribeChannel);
 channel_router.post('/subcribersNo',GetSubcribersNOController.getSubcribersNo);
-channel_router.post('/unsubcribedChannel',UnsubcribeChannelController.unsubcribeChannel);
+channel_router.post('/unsubcribedChannel',verifySessionToken,UnsubcribeChannelController.unsubcribeChannel);
 
 module.exports = channel_router;

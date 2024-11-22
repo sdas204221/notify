@@ -9,7 +9,7 @@ const  isModarator=require('../middleware/is_modarator');
 const  getNoticeListController =require('../controllers/notice_controllers/get_notice_list');
 const getNoticeByIDController= require('../controllers/notice_controllers/get_notice_by_id');
 const GetNoticeByNoticeNoController = require('../controllers/notice_controllers/get_notice_by_notice_no');
-
+const DownloadFileController =require('../controllers/notice_controllers/download_file');
 
 const storage = multer.memoryStorage(); // Store file data in memory buffer
 const upload = multer({ storage });
@@ -21,6 +21,7 @@ notice_routes.post('/create',upload.array('files'), verifySessionToken,isModarat
 notice_routes.post('/getNotices',getNoticeListController.getNoticeList);
 notice_routes.post('/getNoticeByID',getNoticeByIDController.getNoticeByID);
 notice_routes.post('/getNoticeByNoticeNo',GetNoticeByNoticeNoController.getNoticeByNoticeNo);
+notice_routes.post('/downloadFile',DownloadFileController.downloadFileById);
 
 
 module.exports = notice_routes;

@@ -1,0 +1,42 @@
+type: Post
+
+url:http://localhost:3000/api/users/register
+
+Body:
+{"user_id":"3",
+"password":"123", 
+"dp":"ft", --- not required 
+"name":"Rim", 
+"email":"x0hujhstk@tcs.com" }
+Responce:
+
+res.status(400).json({
+                success: false,
+                message: 'user id  is required',
+            });
+
+res.status(400).json({
+                success: false,
+                message: 'password is required',
+            });
+
+  res.status(400).json({
+                success: false,
+                message: 'name is required',
+            });
+
+  res.status(201).json({ success: true });
+
+   res.status(400).json({
+                    success: false,
+                    message: 'user id already exists'
+                });
+  res.status(400).json({
+                    success: false,
+                    message: 'email already exists'
+                });
+
+  res.status(500).json({
+            success: false,
+            message: 'an unexpected error occurred'
+        });
