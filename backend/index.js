@@ -17,7 +17,7 @@ app.use(cors({ exposedHeaders: ['Content-Disposition', 'Content-Type'] }));
 
 app.use('/api/channels', channelRoutes);
 app.use('/api/users', userRoutes);
-app.use('/notice', noticeRoutes); 
+app.use('/api/notices', noticeRoutes); 
 
 const PORT = process.env.PORT ;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

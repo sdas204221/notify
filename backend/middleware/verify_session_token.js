@@ -3,9 +3,7 @@ const User=require('../model/user.model')
 
 
 const verifySessionToken =async (req,res,next)=>{
-    console.log("---------------------------------------------");
-    console.log("in middleware");
-  //console.log(req);
+    
   
     try{
     //console.log(req.body);
@@ -32,13 +30,12 @@ if(user.session_tokens.includes(token)){
 }
 else{
 res.status(403).json({ message: 'Invalid or expired token.' });
-console.log("---------------------------------------------");
 }
 
 }catch(error){
     console.error( error.message);
     res.status(500).json({ message: 'Internal server error' });
-    console.log("---------------------------------------------");
+   
 }
 }
 
